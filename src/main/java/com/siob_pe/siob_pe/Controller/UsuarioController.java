@@ -21,6 +21,7 @@ public class UsuarioController implements GenericController {
         this.usuarioService = usuarioService;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public ResponseEntity<Void> salvar(@RequestBody UsuarioDTO usuarioDTO) {
 
@@ -39,6 +40,7 @@ public class UsuarioController implements GenericController {
         return ResponseEntity.created(location).build();
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("{nome}")
     public ResponseEntity<List<UsuarioDTO>>  buscarPorNome(@PathVariable("nome") String nome) {
 
@@ -57,6 +59,7 @@ public class UsuarioController implements GenericController {
         return ResponseEntity.ok(resposta);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("{matricula}")
     public ResponseEntity<Void> atualizar(@PathVariable("matricula") String matricula, @RequestBody UsuarioDTO usuarioDTO) {
         Optional<Usuario> usuarioOptional = usuarioService.buscarPorMatricula(matricula);
@@ -80,6 +83,7 @@ public class UsuarioController implements GenericController {
         return ResponseEntity.notFound().build();
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("{matricula}")
     public ResponseEntity<Void> deletar(@PathVariable("matricula") String matricula) {
 

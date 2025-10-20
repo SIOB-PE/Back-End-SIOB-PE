@@ -1,6 +1,5 @@
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: siob-pe
+      uri: mongodb+srv://vyniciushenrique:dbrPfXuHGmHZ3VrU@siob-pe.ffyikjl.mongodb.net/?retryWrites=true&w=majority&appName=SIOB-PE
+      database: SIOB-PE

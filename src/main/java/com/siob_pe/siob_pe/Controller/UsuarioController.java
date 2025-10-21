@@ -41,8 +41,8 @@ public class UsuarioController implements GenericController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping
-    public ResponseEntity<List<UsuarioDTO>>  buscarPorNome(@RequestParam(value = "nome", required = false) String nome) {
+    @GetMapping("{nome}")
+    public ResponseEntity<List<UsuarioDTO>>  buscarPorNome(@PathVariable("nome") String nome) {
 
 
         List<Usuario> resultado = usuarioService.buscarPorNome(nome);

@@ -59,6 +59,24 @@ public class UsuarioController implements GenericController {
         return ResponseEntity.ok(resposta);
     }
 
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping
+    public ResponseEntity<UsuarioDTO> loginUsuario(
+            @RequestParam("matricula") String matricula,
+            @RequestParam("senha") String senha) {
+
+    Optional<Usuario> optionalUsuario = usuarioService.buscarPorMatricula(matricula);
+
+    if (optionalUsuario.isPresent()) {
+        usuarioService.validarLogin(optionalUsuario.get().getMatricula(), optionalUsuario.get().getSenha());
+        return ResponseEntity.noContent().build();
+    }
+
+
+    return ResponseEntity.notFound().build();
+    }
+
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("{matricula}")
     public ResponseEntity<Void> atualizar(@PathVariable("matricula") String matricula, @RequestBody UsuarioDTO usuarioDTO) {
@@ -67,6 +85,7 @@ public class UsuarioController implements GenericController {
         if (usuarioOptional.isPresent()){
             Usuario usuario = new Usuario();
 
+            usuario.setId(usuarioOptional.get().getId());
             usuario.setNome(usuarioDTO.nome());
             usuario.setEmail(usuarioDTO.email());
             usuario.setDataNascimento(usuarioDTO.dataNascimento());

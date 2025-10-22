@@ -37,5 +37,12 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
 
+    public boolean validarLogin(String senha, String matricula) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findByMatricula(matricula);
+
+        return optionalUsuario.map(usuario -> usuario.getSenha().equals(senha)).orElse(false);
+
+    }
+
 
 }

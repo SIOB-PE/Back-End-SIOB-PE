@@ -1,5 +1,5 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://vyniciushenrique:dbrPfXuHGmHZ3VrU@siob-pe.ffyikjl.mongodb.net/?retryWrites=true&w=majority&appName=SIOB-PE
+      uri: ${DATASOURCE_URI}
       database: SIOB-PE

@@ -19,7 +19,6 @@ public class Usuario {
 
     private String email;
 
-    private LocalDate dataNascimento;
 
     private String senha;
 

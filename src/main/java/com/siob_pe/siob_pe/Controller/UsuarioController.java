@@ -32,7 +32,6 @@ public class UsuarioController implements GenericController {
         usuario.setNome(usuarioDTO.nome());
         usuario.setEmail(usuarioDTO.email());
         usuario.setSenha(usuarioDTO.senha());
-        usuario.setDataNascimento(usuarioDTO.dataNascimento());
 
         usuarioService.salvar(usuario);
 
@@ -52,7 +51,6 @@ public class UsuarioController implements GenericController {
                         usuario.getMatricula(),
                         usuario.getNome(),
                         usuario.getEmail(),
-                        usuario.getDataNascimento(),
                         usuario.getSenha(),
                         usuario.getTipoUsuario())).toList();
 
@@ -88,7 +86,6 @@ public class UsuarioController implements GenericController {
             usuario.setId(usuarioOptional.get().getId());
             usuario.setNome(usuarioDTO.nome());
             usuario.setEmail(usuarioDTO.email());
-            usuario.setDataNascimento(usuarioDTO.dataNascimento());
             usuario.setSenha(usuarioDTO.senha());
             usuario.setTipoUsuario(usuarioDTO.tipoUsuario());
             usuario.setMatricula(matricula);

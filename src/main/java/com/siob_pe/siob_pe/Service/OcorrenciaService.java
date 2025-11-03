@@ -16,4 +16,8 @@ public class OcorrenciaService {
     public void salvar(Ocorrencia ocorrencia){
         ocorrenciaRepository.save(ocorrencia);
     }
+
+    public void atualizar(Ocorrencia ocorrencia){
+        ocorrenciaRepository.save(ocorrencia);
+    }
 }

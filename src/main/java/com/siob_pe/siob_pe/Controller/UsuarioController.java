@@ -32,6 +32,7 @@ public class UsuarioController implements GenericController {
         usuario.setNome(usuarioDTO.nome());
         usuario.setEmail(usuarioDTO.email());
         usuario.setSenha(usuarioDTO.senha());
+        usuario.setUserActive(true);
 
         usuarioService.salvar(usuario);
 
@@ -67,12 +68,12 @@ public class UsuarioController implements GenericController {
     Optional<Usuario> optionalUsuario = usuarioService.buscarPorMatricula(matricula);
 
     if (optionalUsuario.isPresent()) {
-        usuarioService.validarLogin(optionalUsuario.get().getMatricula(), optionalUsuario.get().getSenha());
-        return ResponseEntity.noContent().build();
+        boolean userExist = usuarioService.validarLogin(optionalUsuario.get().getSenha(), optionalUsuario.get().getMatricula());
+        if (userExist) {
+            return ResponseEntity.ok().build();
+        }
     }
-
-
-    return ResponseEntity.notFound().build();
+        return ResponseEntity.notFound().build();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

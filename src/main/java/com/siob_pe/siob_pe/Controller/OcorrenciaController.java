@@ -2,6 +2,7 @@ package com.siob_pe.siob_pe.Controller;
 
 import com.siob_pe.siob_pe.Controller.DTO.OcorrenciaDTO;
 import com.siob_pe.siob_pe.Model.Ocorrencia;
+import com.siob_pe.siob_pe.Model.SituacaoOcorrencia;
 import com.siob_pe.siob_pe.Service.OcorrenciaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -42,7 +43,7 @@ public class OcorrenciaController implements GenericController {
         ocorrencia.setRegiao(ocorrenciaDTO.regiao());
         ocorrencia.setTipoLogradouro(ocorrenciaDTO.tipoLogradouro());
         ocorrencia.setTipoNaturezaOcorrencia(ocorrenciaDTO.tipoNaturezaOcorrencia());
-
+        ocorrencia.setSituacaoOcorrencia(SituacaoOcorrencia.EM_ANDAMENTO);
         ocorrenciaService.salvar(ocorrencia);
 
         URI location = gerarHeaderLocation(ocorrencia.getId());

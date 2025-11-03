@@ -24,4 +24,6 @@ public class Usuario {
 
     private TipoUsuario tipoUsuario;
 
+    private boolean userActive;
+
 }

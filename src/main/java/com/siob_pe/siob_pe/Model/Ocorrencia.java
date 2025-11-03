@@ -30,4 +30,5 @@ public class Ocorrencia {
     private String logradouro;
     private TipoNaturezaOcorrencia tipoNaturezaOcorrencia;
     private String subgrupoOcorrencia;
+    private SituacaoOcorrencia situacaoOcorrencia;
 }

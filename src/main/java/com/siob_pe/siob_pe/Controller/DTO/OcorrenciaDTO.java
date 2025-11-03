@@ -1,5 +1,6 @@
 package com.siob_pe.siob_pe.Controller.DTO;
 
+import com.siob_pe.siob_pe.Model.SituacaoOcorrencia;
 import com.siob_pe.siob_pe.Model.TipoLogradouro;
 import com.siob_pe.siob_pe.Model.TipoNaturezaOcorrencia;
 
@@ -25,6 +26,7 @@ public record OcorrenciaDTO(
         TipoLogradouro tipoLogradouro,
         String logradouro,
         TipoNaturezaOcorrencia tipoNaturezaOcorrencia,
-        String subgrupoOcorrencia
+        String subgrupoOcorrencia,
+        SituacaoOcorrencia situacaoOcorrencia
 ) {
 }

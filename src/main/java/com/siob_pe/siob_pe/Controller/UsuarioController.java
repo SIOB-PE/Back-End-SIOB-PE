@@ -32,7 +32,7 @@ public class UsuarioController implements GenericController {
         usuario.setNome(usuarioDTO.nome());
         usuario.setEmail(usuarioDTO.email());
         usuario.setSenha(usuarioDTO.senha());
-        usuario.setUserActive(true);
+        usuario.setUsuarioAtivo(true);
 
         usuarioService.salvar(usuario);
 
@@ -94,7 +94,7 @@ public class UsuarioController implements GenericController {
 
             usuarioService.atualizar(usuario);
 
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.ok().build();
         }
 
         return ResponseEntity.notFound().build();

@@ -1,8 +1,11 @@
 package com.siob_pe.siob_pe.Model;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
 
@@ -31,4 +34,12 @@ public class Ocorrencia {
     private TipoNaturezaOcorrencia tipoNaturezaOcorrencia;
     private String subgrupoOcorrencia;
     private SituacaoOcorrencia situacaoOcorrencia;
+
+    @CreatedDate
+    @Field("data_cadastro")
+    private LocalDateTime dataCadastro;
+
+    @LastModifiedDate
+    @Field("data_atualizacao")
+    private LocalDateTime dataAtualizacao;
 }

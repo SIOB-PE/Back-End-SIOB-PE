@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface UsuarioRepository extends MongoRepository<Usuario, UUID> {
+public interface UsuarioRepository extends MongoRepository<Usuario, String> {
     List<Usuario> findByNome(String nome);
 
     Optional<Usuario> findByMatricula(String matricula);

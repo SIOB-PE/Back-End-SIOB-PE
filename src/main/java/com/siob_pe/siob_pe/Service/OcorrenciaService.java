@@ -4,6 +4,9 @@ import com.siob_pe.siob_pe.Model.Ocorrencia;
 import com.siob_pe.siob_pe.Repository.OcorrenciaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class OcorrenciaService {
 
@@ -19,5 +22,9 @@ public class OcorrenciaService {
 
     public void atualizar(Ocorrencia ocorrencia){
         ocorrenciaRepository.save(ocorrencia);
+    }
+
+    public Optional<Ocorrencia> buscarPorId(String id){
+        return ocorrenciaRepository.findById(id);
     }
 }

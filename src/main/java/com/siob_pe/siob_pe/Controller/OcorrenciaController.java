@@ -50,7 +50,7 @@ public class OcorrenciaController implements GenericController {
             Ocorrencia ocorrencia = ocorrenciaOptional.get();
             mapper.atualizarOcorrenciaPorDTO(ocorrenciaDTO, ocorrencia);
             ocorrencia.setSituacaoOcorrencia(SituacaoOcorrencia.EM_ANDAMENTO);
-            ocorrenciaService.salvar(ocorrencia);
+            ocorrenciaService.atualizar(ocorrencia);
 
             return ResponseEntity.ok().build();
         }
@@ -58,5 +58,10 @@ public class OcorrenciaController implements GenericController {
         return ResponseEntity.notFound().build();
     }
 
-
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping("{id}")
+    public  ResponseEntity<Void> deletar (@PathVariable("id") String id){
+        ocorrenciaService.deletar(id);
+        return ResponseEntity.ok().build();
+    }
 }

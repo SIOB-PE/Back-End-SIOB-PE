@@ -1,6 +1,7 @@
 package com.siob_pe.siob_pe.Service;
 
 import com.siob_pe.siob_pe.Model.Ocorrencia;
+import com.siob_pe.siob_pe.Model.SituacaoOcorrencia;
 import com.siob_pe.siob_pe.Repository.OcorrenciaRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,14 @@ public class OcorrenciaService {
 
     public Optional<Ocorrencia> buscarPorId(String id){
         return ocorrenciaRepository.findById(id);
+    }
+
+    public void deletar(String id){
+        Optional<Ocorrencia> optionalOcorrencia = buscarPorId(id);
+        if (optionalOcorrencia.isPresent()){
+            Ocorrencia ocorrencia = optionalOcorrencia.get();
+            ocorrencia.setSituacaoOcorrencia(SituacaoOcorrencia.DELETADA);
+            salvar(ocorrencia);
+        }
     }
 }

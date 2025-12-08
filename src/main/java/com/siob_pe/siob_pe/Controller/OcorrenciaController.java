@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -63,5 +64,12 @@ public class OcorrenciaController implements GenericController {
     public  ResponseEntity<Void> deletar (@PathVariable("id") String id){
         ocorrenciaService.deletar(id);
         return ResponseEntity.ok().build();
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping
+    public ResponseEntity<List<Ocorrencia>> buscarTodas (){
+        List<Ocorrencia> ocorrenciaList = ocorrenciaService.buscarTodos();
+        return ResponseEntity.ok(ocorrenciaList);
     }
 }

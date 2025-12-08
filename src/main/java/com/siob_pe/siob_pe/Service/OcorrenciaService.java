@@ -5,6 +5,7 @@ import com.siob_pe.siob_pe.Model.SituacaoOcorrencia;
 import com.siob_pe.siob_pe.Repository.OcorrenciaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -36,5 +37,9 @@ public class OcorrenciaService {
             ocorrencia.setSituacaoOcorrencia(SituacaoOcorrencia.DELETADA);
             salvar(ocorrencia);
         }
+    }
+
+    public List<Ocorrencia> buscarTodos(){
+        return ocorrenciaRepository.findAll();
     }
 }
